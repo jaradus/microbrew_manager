@@ -44,3 +44,5 @@ group :development do
   gem 'rspec'
   gem 'rspec-rails'
 end
+
+gem 'rails_12factor', group: :production
