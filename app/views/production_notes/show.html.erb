@@ -1,0 +1,13 @@
+<% @notes.each do |info| %>
+  <% @name = Beer.find(info.beer_id) %>
+  <p><h1><%= @name.name %></h1></p>
+  <p><img src="<%= info.image_url %>"</p>
+  <p>Brewed: <%= info.brew_date %></p>
+  <p>Secondary: <%= info.secondary_date %></p>
+  <p>Bottled on: <%= info.bottling_date %></p>
+  <p>Comments: <%= info.notes %></p>
+  <p>Reviews: <% info.reviews.each do |review| %>
+    <p><a href="reviews/<%= review.id %>"></a><%= review.title %></p>
+    <% end %>
+<% end %>
+<a href="/">Back</a>

@@ -1,0 +1,22 @@
+<div>
+<% @beers.each do |beer| %>
+  <h2><%= beer.name %></h2>
+  <img src="<%= beer.image_url %>"/>
+  <p><%= beer.description %></p>
+  <p>Gallons per Batch: <%= beer.batch_yield %></p>
+  <p>Regional Style: <%= beer.regional_style %></p>
+  <p>Beer Style: <%= beer.beer_style %></p>
+  <p>Color: <%= beer.color %></p>
+  <p>O.G.: <%= beer.original_gravity %></p>
+  <p>F.G.: <%= beer.final_gravity %></p>
+  <p>Time to Make: <%= beer.time_to_make %></p>
+  <h3>Production Notes</h3>
+  <% beer.production_notes.each do |note| %>
+      <p>
+        <form method="get" action="/production_notes/<%= note.id %>">
+          <input type="submit" value="Production Notes from <%= note.brew_date %>"/>
+        </form>
+      </p>
+  <% end %>
+<% end %>
+</div>

@@ -1,0 +1,30 @@
+<h1>Master Beer List</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Style</td>
+      <td>Color</td>
+      <td>Time to Make</td>
+      <td></td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @beers.each do |beer| %>
+    <tr>
+      <td><%= link_to beer.name, beer_path(beer) %></td>
+      <td><%= link_to beer.regional_style, beer_path(beer) %></td>
+      <td><%= link_to beer.color, beer_path(beer) %></td>
+      <td><%= link_to beer.time_to_make, beer_path(beer) %></td>
+      <td>
+        <form method="POST" action="/beers/<%= beer.id %>">
+          <input type="hidden" name="_method" value="DELETE">
+          <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+        </form>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
